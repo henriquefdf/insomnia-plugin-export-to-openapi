@@ -65,4 +65,4 @@ Contributions are welcome\! If you have a suggestion or find a bug, please feel 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://www.google.com/search?q=https://github.com/henriquefdf/insomnia-plugin-export-to-openapi/blob/main/LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/henriquefdf/insomnia-plugin-export-to-openapi/blob/main/LICENSE.md) file for details.
