@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "description": "Exports an Insomnia collection to OpenAPI 3.0 YAML format, preserving the folder structure as tags.",
   "main": "src/main.js",
-  "author": "Seu Nome <henriquefreitas6@gmail.com>",
+  "author": "Henrique Freitas <henriquefreitas6@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/henriquefdf/insomnia-plugin-openapi-converter.git"
+    "url": "https://github.com/henriquefdf/insomnia-plugin-export-to-openapi.git"
   },
   "bugs": {
-    "url": "https://github.com/henriquefdf/insomnia-plugin-openapi-converter/issues"
+    "url": "https://github.com/henriquefdf/insomnia-plugin-export-to-openapi/issues"
   },
-  "homepage": "https://github.com/henriquefdf/insomnia-plugin-openapi-converter#readme",
+  "homepage": "https://github.com/henriquefdf/insomnia-plugin-export-to-openapi#readme",
   "keywords": [
     "insomnia",
     "plugin",
