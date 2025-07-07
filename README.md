@@ -1,8 +1,23 @@
-# Insomnia OpenAPI 3.0 Exporter
+<p align="center">
+<img src="logo.svg" alt="Insomnia OpenAPI Exporter Logo" width="128" height="128">
+</p>
 
-[](https://www.npmjs.com/package/insomnia-plugin-openapi-converter)
-[](https://opensource.org/licenses/MIT)
+<h1 align="center">Insomnia OpenAPI 3.0 Exporter</h1>
 
+<p align="center">
+<a href="https://www.npmjs.com/package/insomnia-plugin-openapi-converter" target="_blank">
+<img src="https://img.shields.io/npm/v/insomnia-plugin-openapi-converter?style=for-the-badge&logo=npm&color=CB3837" alt="NPM Version">
+</a>
+<a href="https://www.npmjs.com/package/insomnia-plugin-openapi-converter" target="_blank">
+<img src="https://img.shields.io/npm/dt/insomnia-plugin-openapi-converter?style=for-the-badge&logo=npm&color=CB3837" alt="NPM Downloads">
+</a>
+<a href="https://github.com/henriquefdf/insomnia-plugin-export-to-openapi/blob/main/LICENSE.md" target="_blank">
+<img src="https://img.shields.io/github/license/henriquefdf/insomnia-plugin-export-to-openapi?style=for-the-badge&color=blue" alt="License">
+</a>
+<a href="https://github.com/henriquefdf/insomnia-plugin-export-to-openapi" target="_blank">
+<img src="https://img.shields.io/github/last-commit/henriquefdf/insomnia-plugin-export-to-openapi?style=for-the-badge" alt="Last Commit">
+</a>
+</p>
 An Insomnia plugin to export your current collection to an OpenAPI 3.0 specification file in YAML format. It intelligently preserves your folder structure as tags, making your API documentation clean and organized.
 
 -----
@@ -45,9 +60,9 @@ This plugin hooks into Insomnia's workspace actions. When triggered, it:
 
 Contributions are welcome\! If you have a suggestion or find a bug, please feel free to:
 
-  - Open an issue on the [GitHub repository](https://www.google.com/search?q=https://github.com/seu-usuario/insomnia-plugin-openapi-converter/issues).
+  - Open an issue on the [GitHub repository](https://github.com/henriquefdf/insomnia-plugin-export-to-openapi/issues).
   - Fork the repository and submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://www.google.com/search?q=https://github.com/henriquefdf/insomnia-plugin-export-to-openapi/blob/main/LICENSE.md) file for details.

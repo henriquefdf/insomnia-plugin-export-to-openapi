@@ -1,5 +1,5 @@
 {
-  "name": "insomnia-plugin-openapi-converter",
+  "name": "insomnia-plugin-export-to-openapi",
   "version": "1.0.1",
   "description": "Exports an Insomnia collection to OpenAPI 3.0 YAML format, preserving the folder structure as tags.",
   "main": "src/main.js",
@@ -29,6 +29,7 @@
   "insomnia": {
     "name": "openapi-converter",
     "displayName": "Export to OpenAPI 3.0",
+    "image": "https://raw.githubusercontent.com/henriquefdf/insomnia-plugin-export-to-openapi/main/logo.svg",
     "description": "Converts and exports the current collection to OpenAPI 3.0 YAML format.",
     "unlisted": false
   }
