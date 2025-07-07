@@ -1,6 +1,6 @@
 {
   "name": "insomnia-plugin-export-to-openapi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Exports an Insomnia collection to OpenAPI 3.0 YAML format, preserving the folder structure as tags.",
   "main": "src/main.js",
   "author": "Henrique Freitas <henriquefreitas6@gmail.com>",

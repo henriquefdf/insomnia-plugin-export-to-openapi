@@ -5,11 +5,11 @@
 <h1 align="center">Insomnia OpenAPI 3.0 Exporter</h1>
 
 <p align="center">
-<a href="https://www.npmjs.com/package/insomnia-plugin-openapi-converter" target="_blank">
-<img src="https://img.shields.io/npm/v/insomnia-plugin-openapi-converter?style=for-the-badge&logo=npm&color=CB3837" alt="NPM Version">
+<a href="https://www.npmjs.com/package/insomnia-plugin-export-to-openapi" target="_blank">
+<img src="https://img.shields.io/npm/v/insomnia-plugin-export-to-openapi?style=for-the-badge&logo=npm&color=CB3837" alt="NPM Version">
 </a>
-<a href="https://www.npmjs.com/package/insomnia-plugin-openapi-converter" target="_blank">
-<img src="https://img.shields.io/npm/dt/insomnia-plugin-openapi-converter?style=for-the-badge&logo=npm&color=CB3837" alt="NPM Downloads">
+<a href="https://www.npmjs.com/package/insomnia-plugin-export-to-openapi" target="_blank">
+<img src="https://img.shields.io/npm/dt/insomnia-plugin-export-to-openapi?style=for-the-badge&logo=npm&color=CB3837" alt="NPM Downloads">
 </a>
 <a href="https://github.com/henriquefdf/insomnia-plugin-export-to-openapi/blob/main/LICENSE.md" target="_blank">
 <img src="https://img.shields.io/github/license/henriquefdf/insomnia-plugin-export-to-openapi?style=for-the-badge&color=blue" alt="License">
@@ -34,7 +34,7 @@ An Insomnia plugin to export your current collection to an OpenAPI 3.0 specifica
 
 1.  Open Insomnia.
 2.  Go to **Application** \> **Preferences** \> **Plugins**.
-3.  Type `insomnia-plugin-openapi-converter` and click **Install Plugin**.
+3.  Type `insomnia-plugin-export-to-openapi` and click **Install Plugin**.
 4.  That's it\! No configuration is needed.
 
 ## Usage
