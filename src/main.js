@@ -96,11 +96,17 @@ module.exports.workspaceActions = [{
     icon: 'fa-file-export',
     action: async (context, models) => {
         try {
-            const savePath = await context.app.showSaveDialog({
-                defaultPath: `${models.workspace.name}-openapi.yaml`
-            });
+            // Method 1: Try with prompt as workaround
+            const filename = await context.app.prompt(
+                'Export OpenAPI Specification',
+                {
+                    label: 'Filename (will be saved to home directory)',
+                    defaultValue: `${models.workspace.name}-openapi.yaml`,
+                    submitName: 'Export'
+                }
+            );
 
-            if (!savePath) {
+            if (!filename) {
                 return;
             }
 
@@ -135,9 +141,14 @@ module.exports.workspaceActions = [{
 
             const finalYaml = yaml.dump(openapiSpec, { indent: 2, sortKeys: false });
 
+            // Save to user's home directory or Downloads folder
+            const os = require('os');
+            const homeDir = os.homedir();
+            const savePath = path.join(homeDir, 'Downloads', filename);
+
             await fs.writeFile(savePath, finalYaml);
 
-            context.app.alert('Success!', 'The OpenAPI documentation has been exported.');
+            context.app.alert('Success!', `OpenAPI spec exported to: ${savePath}`);
 
         } catch (err) {
             context.app.alert('Error!', `An error occurred during export: ${err.message}`);
