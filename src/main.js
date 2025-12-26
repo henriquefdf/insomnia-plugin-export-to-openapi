@@ -14,10 +14,16 @@ function sanitizeForOperationId(name, isPath = false) {
 
 function convertUrlToPath(url) {
     if (!url) return '';
-    let path = url.replace(/\{\{.*?base_url.*?\}\}/g, '');
+    // {{ _.baseURL }}, {{ base_url }}, {{ baseUrl }}, {{baseURL}}, etc.
+    let path = url.replace(/\{\{\s*_?\s*\.?\s*(base_?url|baseURL|BASE_?URL)\s*\}\}/gi, '');
+    path = path.replace(/\{\{[^}]*\}\}/g, '');
     path = path.replace(/\?.*$/, '');
     path = path.replace(/:(\w+)/g, '{$1}');
-    return path.trim();
+    path = path.trim();
+    if (path && !path.startsWith('/')) {
+        path = '/' + path;
+    }
+    return path;
 }
 
 function getRequestBody(request) {
@@ -41,14 +47,36 @@ function getRequestBody(request) {
 
 function getParameters(request) {
     const params = [];
+    const seenParams = new Map(); // Track params by "name:location" to deduplicate
+    
     if (request.pathParameters) {
         for (const param of request.pathParameters) {
-            if (param.name) params.push({ name: param.name, in: 'path', required: true, schema: { type: 'string' }, description: param.description || '' });
+            if (!param.name) continue;
+            const key = `${param.name}:path`;
+            if (!seenParams.has(key)) {
+                const paramObj = { name: param.name, in: 'path', required: true, schema: { type: 'string' }, description: param.description || '' };
+                seenParams.set(key, paramObj);
+                params.push(paramObj);
+            }
         }
     }
     if (request.parameters) {
         for (const param of request.parameters) {
-            if (param.name) params.push({ name: param.name, in: 'query', required: !param.disabled, schema: { type: 'string' }, description: param.description || '' });
+            if (!param.name) continue;
+            const key = `${param.name}:query`;
+            // If we already have this param, only replace if the new one is enabled and the old one was disabled
+            if (seenParams.has(key)) {
+                const existing = seenParams.get(key);
+                if (!param.disabled && !existing.required) {
+                    // New param is enabled, old was disabled - update to enabled
+                    existing.required = true;
+                }
+                // Otherwise keep existing (first one wins)
+            } else {
+                const paramObj = { name: param.name, in: 'query', required: !param.disabled, schema: { type: 'string' }, description: param.description || '' };
+                seenParams.set(key, paramObj);
+                params.push(paramObj);
+            }
         }
     }
     return params;
@@ -126,8 +154,13 @@ module.exports.workspaceActions = [{
             const requestGroups = models.requestGroups || [];
 
             const baseEnv = environments.find(e => e.parentId === models.workspace._id);
-            if (baseEnv && baseEnv.data && baseEnv.data.base_url) {
-                openapiSpec.servers.push({ url: baseEnv.data.base_url });
+            if (baseEnv && baseEnv.data) {
+                const baseUrl = baseEnv.data.baseURL || baseEnv.data.base_url || baseEnv.data.baseUrl || baseEnv.data.BASE_URL;
+                if (baseUrl) {
+                    openapiSpec.servers.push({ url: baseUrl });
+                } else {
+                    openapiSpec.servers.push({ url: 'http://localhost' });
+                }
             } else {
                 openapiSpec.servers.push({ url: 'http://localhost' });
             }
